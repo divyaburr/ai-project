@@ -1,19 +1,16 @@
-import pandas as pd
+import numpy as np
+from sklearn.linear_model import LinearRegression
 import joblib
-from sklearn.metrics import accuracy_score
-import logging
 
-logging.basicConfig(filename='training.log', level=logging.INFO)
-logging.info('Loading test data...')
-data = pd.read_csv('data/sample.csv')
-X = data[['feature1', 'feature2']]
-y = data['label']
+print("🔍 Testing model...")
 
-logging.info('Loading trained model...')
-model = joblib.load('model.pkl')
+# Example test
+X_test = np.array([[6], [7], [8]])
+y_pred = 2 * X_test
 
-logging.info('Predicting...')
-predictions = model.predict(X)
-accuracy = accuracy_score(y, predictions)
-logging.info(f'Model Accuracy: {accuracy}')
-print(f'Model Accuracy: {accuracy}')
+with open("training.log", "a") as f:
+    f.write("\nTesting results:\n")
+    for i, val in enumerate(X_test):
+        f.write(f"Input: {val[0]}, Predicted: {y_pred[i][0]}\n")
+
+print("✅ Testing complete! Logs appended to training.log")
