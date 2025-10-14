@@ -1,6 +1,13 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
 import joblib
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+# your existing code
+print("\U0001f50d Testing model...")
+
 
 print("🔍 Testing model...")
 

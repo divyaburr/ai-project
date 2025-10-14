@@ -1,5 +1,12 @@
 import time
 import numpy as np
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
+# your existing imports and code below
+print("\U0001f680 Training started...")
+
 from sklearn.linear_model import LinearRegression
 
 print("🚀 Training started...")
